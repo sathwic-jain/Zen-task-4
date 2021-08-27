@@ -1,0 +1,818 @@
+//Print odd numbers in an array
+
+// Getting input via STDIN
+const readline = require("readline");
+
+const inp = readline.createInterface({
+  input: process.stdin
+});
+
+const userInput = [];
+
+inp.on("line", (data) => {
+  userInput.push(data);
+});
+
+inp.on("close", () => {
+  //start-here
+var dummy=userInput[0].split(" ");
+for(let i=0;i<dummy.length;i++)
+{
+    dummy[i]=parseInt(dummy[i]);
+}
+var odd;
+var j=0;
+var out=(function(dummy){
+  
+    for(let i=0;i<dummy.length;i++)
+    {
+        
+        if(dummy[i]%2!==0)
+        {
+            console.log(dummy[i]);
+        }
+    }
+
+
+})(dummy);
+out();
+});
+  //end-here
+
+Input
+1 2 3 4 5
+
+
+Output:
+
+1
+3
+5
+
+Execution Time:
+
+0.075s
+
+Memory Used:
+
+8320kb
+
+
+//Convert all the strings to title caps in a string array
+
+// Getting input via STDIN
+const readline = require("readline");
+
+const inp = readline.createInterface({
+  input: process.stdin
+});
+
+const userInput = [];
+
+inp.on("line", (data) => {
+  userInput.push(data);
+});
+
+inp.on("close", () => {
+  //start-here
+var dummy=userInput[0].split(" ");
+var eachword;
+var finaloutput=" "
+var output=(function(arrofwords){
+    let len=arrofwords.length;
+    for(let i=0;i<len;i++)
+    {
+        eachword=arrofwords[i].split("");
+        arrofwords[i]=""
+        eachword[0]=eachword[0].toUpperCase();
+        
+        for(let j=0;j<eachword.length;j++)
+        {
+            arrofwords[i]+=eachword[j];
+            
+        }
+        
+        arrofwords[i]=arrofwords[i].trim();
+        finaloutput+=arrofwords[i]+" ";
+    }
+    console.log(finaloutput.trim());
+})(dummy);
+output();
+});
+  //end-here
+
+
+Input
+
+i think this works
+
+
+Output:
+
+I Think This Works
+
+Execution Time:
+
+0.075s
+
+Memory Used:
+
+8328kb
+
+
+//Sum of all numbers in an array
+
+// Getting input via STDIN
+const readline = require("readline");
+
+const inp = readline.createInterface({
+  input: process.stdin
+});
+
+const userInput = [];
+
+inp.on("line", (data) => {
+  userInput.push(data);
+});
+
+inp.on("close", () => {
+  //start-here
+var dummy=userInput[0].split(" ");
+var output=(function(numarray){
+    let sum=0;
+    for(let i=0;i<numarray.length;i++)
+    {
+        sum=sum+(+numarray[i]);
+    }
+    
+    return sum;
+    
+})(dummy);
+    
+ 
+console.log(output);
+});
+  //end-here
+
+input
+1 2 3 4 5
+
+
+Output:
+
+15
+
+Execution Time:
+
+0.073s
+
+Memory Used:
+
+8312kb
+
+input
+1 2 3 4 5
+
+
+//Return all the prime numbers in an array
+
+// Getting input via STDIN
+const readline = require("readline");
+
+const inp = readline.createInterface({
+  input: process.stdin
+});
+
+const userInput = [];
+
+inp.on("line", (data) => {
+  userInput.push(data);
+});
+
+inp.on("close", () => {
+  //start-here
+var dummy=userInput[0].split(" ");
+large=0;
+for(let i=0;i<dummy.length;i++)
+{
+    if(dummy[i]>large)
+    {
+        large=dummy[i];
+    }
+}
+
+var output=(function(large,dummy){
+    var prime=[];
+    prime.push(2);
+    var flag=true;
+    for(let i=3;i<=large;i++)
+    { 
+    
+    flag=true;
+        for(let j=0;j<prime.length;j++)
+        {
+            if(i%prime[j]===0){
+                flag=false
+            }
+           
+        }
+        if(flag===true)
+            {
+                prime.push(i);
+            }
+        
+    }
+    //console.log(prime)
+    for(let i=0;i<dummy.length;i++)
+    {
+        for(let j=0;j<prime.length;j++)
+        {
+            if(dummy[i]==prime[j])
+            {
+                console.log(dummy[i]);
+            }
+        }
+    }
+})(large,dummy);
+output;  
+});
+  //end-here
+
+Input
+
+1 2 3 4 5
+
+
+Output:
+
+2
+3
+5
+
+Execution Time:
+
+0.074s
+
+Memory Used:
+
+8296kb
+
+
+
+//Return median of two sorted arrays of same size
+
+
+
+// Getting input via STDIN
+const readline = require("readline");
+
+const inp = readline.createInterface({
+  input: process.stdin
+});
+
+const userInput = [];
+
+inp.on("line", (data) => {
+  userInput.push(data);
+});
+
+inp.on("close", () => {
+  //start-here
+ //var one=(userInput[0].split(" "));
+ //var two=(userInput[1].split(" "));
+   var median={1:userInput[0].split(" "), 2:userInput[1].split(" ")};
+(function(median){
+    var len=[];
+    var count=0;
+    var temp;
+    for(let x in median){
+        //console.log(median[x]);
+        len[count]=median[x].length;
+        count++;
+    }
+
+        for(let i=0;i<len.length;i++)
+        {
+            if(len[i]%2!==0)
+            {   
+                temp=parseInt(len[i]/2);
+                console.log(median[i+1][temp]);
+            }else{
+                let med;
+                temp=len[i]/2;
+                med=(+(median[i+1][temp])+(+(median[i+1][temp-1])))/2;
+                console.log(med);
+            }
+        }
+   
+})(median);   
+  // console.log(median);
+});
+  //end-here
+
+ Input:
+1 2 3
+3 4 5
+
+   
+Output:
+
+2
+4
+
+Execution Time:
+
+0.072s
+
+Memory Used:
+
+8312kb
+
+//Remove duplicates from an array
+
+// Getting input via STDIN
+const readline = require("readline");
+
+const inp = readline.createInterface({
+  input: process.stdin
+});
+
+const userInput = [];
+
+inp.on("line", (data) => {
+  userInput.push(data);
+});
+
+inp.on("close", () => {
+  //start-here
+ var dummy=(userInput[0].split(" "));
+ for(let i=0;i<dummy.length;i++)
+ {
+     dummy[i]=parseInt(dummy[i]);
+ }
+ var temp;
+// console.log(dummy);
+(function(dummy){
+    
+    for(let i=0;i<(dummy.length)-1;i++)
+    {
+        for(let j=i+1;j<(dummy.length);j++)
+        {
+            if(dummy[i]===dummy[j])
+            {
+                dummy.splice(j,1)
+            }
+        }
+    }
+  console.log(dummy);
+})(dummy);
+
+});
+  //end-here
+
+Input:
+[ 1, 2, 2, 3, 4, 4, 5, 6, 6, 3 ]
+output:
+[ 1, 2, 3, 4, 5, 6 ]
+
+//Rotate an array by k times
+
+
+// Getting input via STDIN
+const readline = require("readline");
+
+const inp = readline.createInterface({
+  input: process.stdin
+});
+
+const userInput = [];
+
+inp.on("line", (data) => {
+  userInput.push(data);
+});
+
+inp.on("close", () => {
+  //start-here
+  var temp=0;
+var dummy=userInput[0].split(" ");//accepting the array
+var k=userInput[1];  //number of times to be rotated
+var len=dummy.length;
+
+var output=(function(dummy,len,k){
+    for(let z=0;z<k;z++)
+    {
+    if((len)%2!==0)
+    {
+    for(let i=0;i<(len)/2;i++)
+    {
+        temp=dummy[i];
+        dummy[i]=dummy[len-1-i];
+        dummy[len-1-i]=temp;
+        
+    }
+    }else{
+        for(let j=0;j<=(len/2)-1;j++)
+        {
+            temp=dummy[j];
+            dummy[j]=dummy[len-1-j];
+            dummy[len-1-j]=temp;
+            
+        }
+    }
+    }
+    return (dummy);
+})(dummy,len,k);
+ 
+console.log(output);
+});
+  //end-here
+
+//Return all the palindromes in an array
+
+// Getting input via STDIN
+const readline = require("readline");
+
+const inp = readline.createInterface({
+  input: process.stdin
+});
+
+const userInput = [];
+
+inp.on("line", (data) => {
+  userInput.push(data);
+});
+
+inp.on("close", () => {
+  //start-here
+ var dummy=(userInput[0].split(","));
+var eachword=[];
+(function(dummy){
+    var flag=true;
+    for(let i=0;i<dummy.length;i++)
+    {
+      eachword=dummy[i].split("")
+      if((eachword.length)%2!==0)
+     {
+      for(let j=0;j<(eachword.length)/2;j++)
+      {
+          if(eachword[j]!==eachword[(eachword.length)-1-j])
+          flag=false;
+      }
+     }else{
+         for(let k=0;k<((eachword.length)/2)+1;k++)
+         {
+              if(eachword[k]!==eachword[(eachword.length)-1-k])
+          flag=false;
+         }
+     }
+     if(flag===true)
+     {
+         console.log(dummy[i]);
+     }
+     flag=true;
+    }
+    
+})(dummy);
+
+});
+  //end-here
+
+Input:
+malayalam,man,mam
+
+Output:
+
+malayalam
+mam
+
+Execution Time:
+
+0.073s
+
+Memory Used:
+
+8308kb
+
+///////////////////////////Arrow function
+
+//Print odd numbers in an array
+
+//Print odd numbers in an array
+
+// Getting input via STDIN
+const readline = require("readline");
+
+const inp = readline.createInterface({
+  input: process.stdin
+});
+
+const userInput = [];
+
+inp.on("line", (data) => {
+  userInput.push(data);
+});
+
+inp.on("close", () => {
+  //start-here
+var dummy=userInput[0].split(" ");
+for(let i=0;i<dummy.length;i++)
+{
+    dummy[i]=parseInt(dummy[i]);
+}
+var odd;
+var j=0;
+var out=((dummy)=>{
+  
+    for(let i=0;i<dummy.length;i++)
+    {
+        
+        if(dummy[i]%2!==0)
+        {
+            console.log(dummy[i]);
+        }
+    }
+
+
+});
+out(dummy);
+});
+  //end-here
+
+input
+1 2 3 4 5
+
+
+Output:
+
+1
+3
+5
+
+Execution Time:
+
+0.074s
+
+Memory Used:
+
+8332kb
+
+//Convert all the strings to title caps in a string array
+
+
+// Getting input via STDIN
+const readline = require("readline");
+
+const inp = readline.createInterface({
+  input: process.stdin
+});
+
+const userInput = [];
+
+inp.on("line", (data) => {
+  userInput.push(data);
+});
+
+inp.on("close", () => {
+  //start-here
+var dummy=userInput[0].split(" ");
+var eachword;
+var finaloutput=" "
+var output=((arrofwords)=>{
+    let len=arrofwords.length;
+    for(let i=0;i<len;i++)
+    {
+        eachword=arrofwords[i].split("");
+        arrofwords[i]=""
+        eachword[0]=eachword[0].toUpperCase();
+        
+        for(let j=0;j<eachword.length;j++)
+        {
+            arrofwords[i]+=eachword[j];
+            
+        }
+        
+        arrofwords[i]=arrofwords[i].trim();
+        finaloutput+=arrofwords[i]+" ";
+    }
+    console.log(finaloutput.trim());
+});
+output(dummy);
+});
+  //end-here
+
+Input
+
+i think this works
+
+
+Output:
+
+I Think This Works
+
+Execution Time:
+
+0.075s
+
+Memory Used:
+
+8328kb
+
+//Sum of all numbers in an array
+
+// Getting input via STDIN
+const readline = require("readline");
+
+const inp = readline.createInterface({
+  input: process.stdin
+});
+
+const userInput = [];
+
+inp.on("line", (data) => {
+  userInput.push(data);
+});
+
+inp.on("close", () => {
+  //start-here
+var dummy=userInput[0].split(" ");
+var output=((numarray)=>{
+    let sum=0;
+    for(let i=0;i<numarray.length;i++)
+    {
+        sum=sum+(+numarray[i]);
+    }
+    
+    return sum;
+    
+});
+    
+ 
+console.log(output(dummy));
+});
+  //end-here
+
+input
+1 2 3 4 5
+
+
+Output:
+
+15
+
+Execution Time:
+
+0.073s
+
+Memory Used:
+
+8312kb
+
+
+//Return all the prime numbers in an array
+
+// Getting input via STDIN
+const readline = require("readline");
+
+const inp = readline.createInterface({
+  input: process.stdin
+});
+
+const userInput = [];
+
+inp.on("line", (data) => {
+  userInput.push(data);
+});
+
+inp.on("close", () => {
+  //start-here
+var dummy=userInput[0].split(" ");
+large=0;
+for(let i=0;i<dummy.length;i++)
+{
+    if(dummy[i]>large)
+    {
+        large=dummy[i];
+    }
+}
+
+var output=((large,dummy)=>{
+    var prime=[];
+    prime.push(2);
+    var flag=true;
+    for(let i=3;i<=large;i++)
+    { 
+    
+    flag=true;
+        for(let j=0;j<prime.length;j++)
+        {
+            if(i%prime[j]===0){
+                flag=false
+            }
+           
+        }
+        if(flag===true)
+            {
+                prime.push(i);
+            }
+        
+    }
+    //console.log(prime)
+    for(let i=0;i<dummy.length;i++)
+    {
+        for(let j=0;j<prime.length;j++)
+        {
+            if(dummy[i]==prime[j])
+            {
+                console.log(dummy[i]);
+            }
+        }
+    }
+});
+output(large,dummy);  
+});
+  //end-here
+
+Input
+
+1 2 3 4 5
+
+
+Output:
+
+2
+3
+5
+
+Execution Time:
+
+0.074s
+
+Memory Used:
+
+8296kb
+
+//Return all the palindromes in an array
+
+// Getting input via STDIN
+const readline = require("readline");
+
+const inp = readline.createInterface({
+  input: process.stdin
+});
+
+const userInput = [];
+
+inp.on("line", (data) => {
+  userInput.push(data);
+});
+
+inp.on("close", () => {
+  //start-here
+ var dummy=(userInput[0].split(","));
+var eachword=[];
+var output=((dummy)=>{
+    var flag=true;
+    for(let i=0;i<dummy.length;i++)
+    {
+      eachword=dummy[i].split("")
+      if((eachword.length)%2!==0)
+     {
+      for(let j=0;j<(eachword.length)/2;j++)
+      {
+          if(eachword[j]!==eachword[(eachword.length)-1-j])
+          flag=false;
+      }
+     }else{
+         for(let k=0;k<((eachword.length)/2)+1;k++)
+         {
+              if(eachword[k]!==eachword[(eachword.length)-1-k])
+          flag=false;
+         }
+     }
+     if(flag===true)
+     {
+         console.log(dummy[i]);
+     }
+     flag=true;
+    }
+    
+});
+output(dummy);
+});
+  //end-here
+
+Input:
+malayalam,man,mam
+
+Output:
+
+malayalam
+mam
+
+Execution Time:
+
+0.073s
+
+Memory Used:
+
+8308kb
